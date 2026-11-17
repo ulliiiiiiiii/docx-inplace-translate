@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docx-inplace-translate"
+version = "0.1.0"
+description = "Translate Word files without touching the layout: only the texts change, with any translator you plug in."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "ulliiiiiiiii" }]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+docx-translate = "docx_translate:main"
+
+[project.urls]
+Homepage = "https://github.com/ulliiiiiiiii/docx-inplace-translate"
+
+[tool.setuptools]
+py-modules = ["docx_translate"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
